@@ -25,11 +25,7 @@ fruit_list = session.table("smoothies.public.fruit_options") \
                     .tolist()
 
 # Multiselect input
-ingredients_list = st.multiselect(
-    'Choose upto five ingredients:', 
-    my_dataframe,
-    max_selections=5
-)
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 
 # Handle selection
 if ingredients_list:
