@@ -32,7 +32,7 @@ ingredients_list = st.multiselect(
 
 # Handle selection
 if ingredients_list:
-    ingredients_string = ''
+    ingredients_string = ', '.join(ingredients_list)
     
     for fruit_chosen in ingredients_list:
         ingredients_string += fruit_chosen + ' '
