@@ -19,13 +19,14 @@ name_on_order = st.text_input('Smoothie Name:')
 st.write('Name of your Smoothie will be:', name_on_order)
 
 # Get fruit options from the table
-fruit_list = session.table("smoothies.public.fruit_options") \
-                    .select(col('FRUIT_NAME')) \
-                    .to_pandas()['FRUIT_NAME'] \
-                    .tolist()
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 
 # Multiselect input
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
+ingredients_list = st.multiselect(
+    'Choose upto five ingredients:', 
+    my_dataframe,
+    max_selections=5
+)
 
 # Handle selection
 if ingredients_list:
