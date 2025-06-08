@@ -23,7 +23,7 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT
 ingredients_list = st.multiselect(
     'Choose upto five ingredients:', 
     my_dataframe,
-    max_selections=5
+    max_selections=6
 )
 
 # Handle selection
