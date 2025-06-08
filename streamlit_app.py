@@ -21,6 +21,7 @@ st.write('Name of your Smoothie will be:', name_on_order)
 # Get fruit options from the table
 my_dataframe = session.table("smoothies.public.fruit_options") \
                     .select(col('FRUIT_NAME'), col('SEARCH_ON')) \
+
 pd_df=my_dataframe.to_pandas()
 
 # Multiselect input
